@@ -13,15 +13,15 @@
 			<tr ng-repeat="row in catlist">
 				<td>{{row.title}}</td>
 				<td>
-				<button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-success">
+				<button type="button" ng-click="updateCategory(row)" class="btn btn-sm btn-success">
 					<i class="glyphicon glyphicon-pencil">
 					</i>
 				</button>	
-				<button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-danger">
+				<button type="button" ng-click="removeCategory(row)" class="btn btn-sm btn-danger">
 					<i class="glyphicon glyphicon-remove-circle">
 					</i>
 				</button>
 				</td>
 			</tr>
 			</tbody>
-		</table>
+		</table>	
