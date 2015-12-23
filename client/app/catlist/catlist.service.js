@@ -25,6 +25,11 @@ angular.module('myNewProjectApp')
       },
       getDataFromTemp:function(){
         return tmpData;
+      },
+      deleteCategory:function(deletionDetails){
+        console.log("Id is >>>",deletionDetails._id);
+        var id = deletionDetails._id;
+        return $http.delete('/api/categories/'+id);
       }
     };
   }]);

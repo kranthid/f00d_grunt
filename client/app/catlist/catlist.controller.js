@@ -17,4 +17,13 @@ angular.module('myNewProjectApp')
     		catlist.tempStoreUpdate(updateData);
     		$state.transitionTo('catlist/update',{id:updateData._id})
     	}
+    	$scope.removeCategory = function(deletionItem){
+    		console.log("Item to be deleted >>",deletionItem);
+    		catlist.deleteCategory(deletionItem).then(function(res){
+    			$scope.deletionResult = "Category was deleted successfully";
+    			$state.reload();
+    		},function(error){
+    			$scope.deletionResult = "Some error occured"
+    		})
+    	}
 	}]);
