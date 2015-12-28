@@ -2,7 +2,7 @@
 
 angular.module('myNewProjectApp')
   .controller('RecipesCtrl',['$scope','recipes', 'Upload', function ($scope,recipes,Upload) {
-    $scope.message = 'Hello';
+    $scope.formName = 'Create Menu Item';
     $scope.uploadFile= function(picFile){
     	$scope.files = picFile;
   		$scope.path = picFile.$ngfBlobUrl
@@ -36,6 +36,9 @@ angular.module('myNewProjectApp')
     	};
     	return recipes.createMenu(menuObj).then(function(result){
     		console.log("result is >>",result);
+    		if(result.data){
+    			$scope.result = "Menu item was added successfully";	
+    		}
     	},function(err){
     		console.log("err is >>>",err);
     		$scope.result = "Some thing went wrong";
