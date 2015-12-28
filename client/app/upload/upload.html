@@ -1,0 +1,16 @@
+<div class="form-group">
+  <label class="control-label col-sm-2" for="title">File upload</label>
+  <div class="col-sm-5">          
+     <input type="file" ngf-select="" ng-model="picFile" name="file" ngf-accept="'image/*'" required="">
+  </div>
+   <div class="col-sm-5">          
+    <button value="Upload" id="Upload" ng-click="uploadFile(picFile)">Upload</button>
+  </div>
+</div>
+<span style = "margin:0px 0px 10px 194px;color:green;">{{fileResult}}<span>
+<div class="form-group">
+  <label class="control-label col-sm-2" for="title">Image URL</label>
+  <div class="col-sm-10">          
+    <input type="text" class="form-control" ng-model ="category.title" id="title" placeholder="Enter title" ng-readonly="true">
+  </div>
+</div>
