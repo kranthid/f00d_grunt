@@ -33,7 +33,7 @@ var upload = multer()
 var server = http.createServer(app);
 require('./config/express')(app);
 require('./routes')(app);
-
+var upload = multer({ dest: 'uploads/' })
 // Start server
 function startServer() {
   server.listen(config.port, config.ip, function() {
@@ -45,28 +45,35 @@ function startServer() {
 app.post('/cloud/upload', upload.single('file'),function(req,res){
 console.log("uploading file >>>>>>");
 	console.log("file is >>> ",req.file);
-	res.send({message:"done"})
-/*	if(req.file.size < 500000){
+	console.log("Path is >>> ",req.body.path);
+	var fileData = req.body.path;
+	console.log("file data is >>>>",fileData)
+	if(req.file.size < 500000){
 		if(req.file.mimetype == 'image/jpeg' ||req.file.mimetype == 'image/png' || req.file.mimetype == 'image/jpg' ){
+	/*	cloudinary.uploader.upload(fileData, {tags : "basic_sample"}, function(err,image){
+		  console.log();
+		  console.log("** Remote Url");
+		  if (err){ console.warn("err is >>>> ",err);}
+		  console.log("* "+image.url);
+		});*/
 			console.log("File path >>",req.file.path)
-			cloudinary.uploader.upload('pizza.jpg',{tags:'basic_sample'})
-			.then(function(image){
-			  console.log("* "+image.public_id);
-			  console.log("* "+image.url);
-			  res.send({"status":201,"imagePath":image.url});
+			console.log("File originalname >>",req.file.originalname)
+			var serverPath = 'uploads'+'\\'+req.file.originalname;
+			console.log("+++++++++++",serverPath);
+			fs.rename(req.file.path,serverPath,function(err,data){
+				if(err){
+					res.send("Some error occured>>",err);
+				}else{
+					res.send({path:serverPath});
+				}
 			})
-			.catch(function(err){
-			  console.log();
-			  console.log("** File Upload (Promise)");
-			  if (err){ console.warn(err);}
-			});
 		}else{
 			res.send({message:"File format not supported"})
 		}
 
 	}else{
 		res.send({message:"File size exceeded"});
-	}*/
+	}
 
 })
 setImmediate(startServer);

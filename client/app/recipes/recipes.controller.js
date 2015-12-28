@@ -18,11 +18,18 @@ angular.module('myNewProjectApp')
 		}).error(function(error){
 			$scope.error = error
 		})*/
+  		$scope.path = picFile.$ngfBlobUrl
           Upload.upload({
             url: '/cloud/upload',
-            data: {file: picFile}
+            data: {file: picFile,path:$scope.path}
         }).then(function (resp) {
-            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            console.log('Successfully uploaded >>'+resp);
+            if(resp.data.path){
+            	$scope.imageUrl = resp.data.path;
+            }else{
+            	$scope.imageUrl = "";
+            }
+            
         }, function (resp) {
             console.log('Error status: ' + resp.status);
         }, function (evt) {
