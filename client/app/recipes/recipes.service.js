@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myNewProjectApp')
-  .factory('recipes',['$http', function ($http) {
+  .factory('recipes',['$http','$q', function ($http,$q) {
     // Public API here
     return {
       createMenu: function (menuData) {
@@ -11,6 +11,12 @@ angular.module('myNewProjectApp')
         }).error(function(error){
           console.log("Error is >>>",error);
           return error
+        })
+      },
+      getAllRecipies: function () {
+        return $http.get("/api/recipies").success(function(results){
+
+          return results;
         })
       }
     };
