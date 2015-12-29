@@ -21,5 +21,10 @@ angular.module('myNewProjectApp')
         var id = updateRecipeData._id;
         return $http.put('/api/recipies/'+id,updateRecipeData);
       },
+      deleteRecipeItem:function(getMenuDetails){
+        console.log("Deleting object id is >>>",getMenuDetails._id)
+        var id = getMenuDetails._id;
+        return $http.delete('/api/recipies/'+id,getMenuDetails);	
+      }
     };
   }]);

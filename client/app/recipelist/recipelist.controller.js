@@ -10,4 +10,13 @@ angular.module('myNewProjectApp')
     	recipelist.tempStoreUpdate(getMenuDetails);
     	$state.transitionTo('recipeupdate',{id:getMenuDetails._id})
     }
+    $scope.removeMenuItem = function(getMenuDetails){
+    		console.log("Item to be deleted >>",getMenuDetails);
+    		recipelist.deleteRecipeItem(getMenuDetails).then(function(res){
+    			$scope.deletionResult = "Category was deleted successfully";
+    			$state.reload();
+    		},function(error){
+    			$scope.deletionResult = "Some error occured"
+    		})
+    }
   }]);
