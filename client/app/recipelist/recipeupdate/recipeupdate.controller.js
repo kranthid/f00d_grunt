@@ -26,5 +26,19 @@ angular.module('myNewProjectApp')
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     }
+    $scope.updateMenuItem = function(recipeDetails){
+    	recipelist.updateRecipe(recipeDetails).then(function(response){
+    		console.log("response was >>>",response)
+    		if(response.data._id){
+    			$scope.updateResult = "Successfully updated";	
+    		}else{
+    			$scope.updateResult = "Verify one more time";
+    		}
+    		
+    	},function(error){
+    		console.log("error is >>>",error);
+    		$scope.error = "Some thing went wrong"
+    	})
+    }
 
   }]);

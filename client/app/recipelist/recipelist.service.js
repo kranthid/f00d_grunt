@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myNewProjectApp')
-  .factory('recipelist', function () {
+  .factory('recipelist',['$http', function ($http) {
     // Service logic
     // ...
 
@@ -15,6 +15,11 @@ angular.module('myNewProjectApp')
       },
       getDataFromTemp:function(){
         return tmpData;
-      }
+      },
+      updateRecipe:function(updateRecipeData){
+        console.log("Updating object id is >>>",updateRecipeData._id)
+        var id = updateRecipeData._id;
+        return $http.put('/api/recipies/'+id,updateRecipeData);
+      },
     };
-  });
+  }]);

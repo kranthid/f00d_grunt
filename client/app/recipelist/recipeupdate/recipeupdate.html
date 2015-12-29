@@ -1,9 +1,9 @@
 <navbar></navbar>
 
 <div class="container">
-  <h3>{{formName}}</h3><br/>
+  <h3>{{formTitle}}</h3><br/>
   {{error}}
-  {{result}}
+  {{updateResult}}
   ++{{dataTobeUpdated}}
   <form class="form-horizontal" role="form">
     <div class="form-group">
@@ -30,7 +30,7 @@
 	<div class="form-group">
 	  <label class="control-label col-sm-2" for="title">File upload</label>
 	  <div class="col-sm-5">          
-	     <input type="file" ngf-select="" ng-model="picFile" name="file" ngf-accept="'image/*'" required="">
+	     <input type="file" ngf-select="" ng-model="picFile" name="file" ngf-accept="'image/*'">
 	  </div>
 	   <div class="col-sm-5">          
 	    <button value="Upload" id="Upload" ng-click="uploadFile(picFile)">Upload</button>
@@ -52,7 +52,7 @@
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default" ng-click="createMenuItem(menuItem)">Update</button>
+        <button type="submit" class="btn btn-default" ng-click="updateMenuItem(dataTobeUpdated)">Update</button>
       </div>
     </div>
   </form>
