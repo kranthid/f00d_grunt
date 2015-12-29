@@ -1,0 +1,59 @@
+<navbar></navbar>
+
+<div class="container">
+  <h3>{{formName}}</h3><br/>
+  {{error}}
+  {{result}}
+  ++{{dataTobeUpdated}}
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="title">Category</label>
+      <div class="col-sm-10">          
+        <select data-ng-options="items.title for items in dropdown" ng-model="menuItem.catvalue">
+			<option value="">{{dataTobeUpdated.category}}</option>
+		</select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="title">Name</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" ng-model ="dataTobeUpdated.title" id="title" placeholder="Enter title" ng-required="true">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="price">Price</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" ng-model ="dataTobeUpdated.price" id="title" placeholder="Enter title" ng-required="true">
+      </div>
+    </div>
+    
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="title">File upload</label>
+	  <div class="col-sm-5">          
+	     <input type="file" ngf-select="" ng-model="picFile" name="file" ngf-accept="'image/*'" required="">
+	  </div>
+	   <div class="col-sm-5">          
+	    <button value="Upload" id="Upload" ng-click="uploadFile(picFile)">Upload</button>
+	  </div>
+	</div> 
+	<span style = "margin:0px 0px 10px 194px;color:green;">{{fileResult}}<span>
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="title">Image URL</label>
+	  <div class="col-sm-10">          
+	    <input type="text" class="form-control" ng-model ="dataTobeUpdated.imageUrl" id="imageUrl" placeholder="Enter title" ng-readonly="true">
+	  </div>
+	</div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="title">Status</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" ng-model ="dataTobeUpdated.status" id="title" placeholder="Enter title" ng-required="true">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default" ng-click="createMenuItem(menuItem)">Update</button>
+      </div>
+    </div>
+  </form>
+</div>
