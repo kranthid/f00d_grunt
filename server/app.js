@@ -28,11 +28,13 @@ if (config.seedDB) { require('./config/seed'); }
 
 // Setup server
 var app = express();
+var cors = require('cors');
 var multer = require('multer');
 var upload = multer()
 var server = http.createServer(app);
 require('./config/express')(app);
 require('./routes')(app);
+app.use(cors());
 var upload = multer({ dest: 'uploads/' })
 // Start server
 function startServer() {

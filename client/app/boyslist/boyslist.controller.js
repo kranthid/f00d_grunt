@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('myNewProjectApp')
-  .controller('BoyslistCtrl', function ($scope) {
+  .controller('BoyslistCtrl',['$scope','boyslist', function ($scope,boyslist) {
     $scope.message = 'Hello';
-  });
+  }]);

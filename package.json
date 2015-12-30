@@ -25,7 +25,8 @@
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.3.0",
     "cloudinary":"*",
-    "fs":"*"
+    "fs":"*",
+    "cors":"*"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.0",
