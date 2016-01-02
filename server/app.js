@@ -60,7 +60,7 @@ console.log("uploading file >>>>>>");
 		});*/
 			console.log("File path >>",req.file.path)
 			console.log("File originalname >>",req.file.originalname)
-			var serverPath = 'uploads'+'\\'+req.file.originalname;
+			var serverPath = ('uploads'+'\\'+req.file.originalname || 'uploads'+'/'+req.file.originalname)
 			console.log("+++++++++++",serverPath);
 			fs.rename(req.file.path,serverPath,function(err,data){
 				if(err){

@@ -5,9 +5,10 @@ angular.module('myNewProjectApp')
     $scope.formTitle = 'Update Form';
     console.log($scope.tmpUpdateData);
     $scope.dataTobeUpdated = catlist.getDataFromTemp();
-    $scope.updateCategory = function(updateDetails){
-    	console.log(">>>>>>>>>>>>",updateDetails)
-    	catlist.updateCategory(updateDetails).then(function(response){
+    $scope.updateCategory = function(updateData){
+    	console.log(">>>>>>>>>>>>",updateData)
+        var imageUrl = $('#imageUrl').val();
+    	catlist.updateCategory(updateData).then(function(response){
     		console.log("response was >>>",response)
     		$scope.updateResult = "success";
     	})

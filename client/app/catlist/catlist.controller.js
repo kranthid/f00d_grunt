@@ -15,7 +15,7 @@ angular.module('myNewProjectApp')
     		console.log("Getting updated details >>>",updateData);
     		//$scope.tmpUpdateData = updateData
     		catlist.tempStoreUpdate(updateData);
-    		$state.transitionTo('boyslistupdate',{id:updateData._id})
+    		$state.transitionTo('catlist/update',{id:updateData._id})
     	}
     	$scope.removeCategory = function(deletionItem){
     		console.log("Item to be deleted >>",deletionItem);
