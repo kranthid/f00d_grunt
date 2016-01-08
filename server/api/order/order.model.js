@@ -23,6 +23,6 @@ var OrderSchema = new mongoose.Schema({
   orderId: {
   	type:String
   }
-});
+},{timestamps: true});
 
 export default mongoose.model('Order', OrderSchema);
