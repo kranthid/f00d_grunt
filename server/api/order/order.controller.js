@@ -21,8 +21,10 @@ function handleError(res, statusCode) {
 }
 
 function responseWithResult(res, statusCode) {
+  console.log("Got result is >>>>",res);
   statusCode = statusCode || 200;
   return function(entity) {
+    console.log("entity >>>>>>>>>>>>>>>>>>>>_______",entity);
     if (entity) {
       res.status(statusCode).json(entity);
     }
@@ -60,6 +62,7 @@ function removeEntity(res) {
   };
 }
 
+
 // Gets a list of Orders
 export function index(req, res) {
   Order.findAsync()
@@ -77,8 +80,6 @@ export function show(req, res) {
 
 // Creates a new Order in the DB
 export function create(req, res) {
-  console.log("req.body is >>>>>>>",req.body)
-  console.log(">>>>>>>>>>>>number >>>>>",rand.randomInt(1, 99999999));
   var orderId = rand.randomInt(1, 99999999);
   req.body.status = "Ordered";
   req.body.orderId = orderId;
@@ -105,5 +106,17 @@ export function destroy(req, res) {
   Order.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
+    .catch(handleError(res));
+}
+
+
+//Update status of order
+export function updateStatusOrder(req, res) {
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  Order.findByIdAndUpdate(req.params.id,{$set:{status: req.body.status}})
+    .then(handleEntityNotFound(res))
+    .then(responseWithResult(res))
     .catch(handleError(res));
 }

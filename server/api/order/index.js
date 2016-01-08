@@ -11,5 +11,7 @@ router.post('/', controller.create);
 router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
+router.put('/status/:id', controller.updateStatusOrder);
+
 
 module.exports = router;
