@@ -27,7 +27,8 @@
     "cloudinary":"*",
     "fs":"*",
     "cors":"*",
-    "multer":"*"
+    "multer":"*",
+    "rand-range":"*"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.0",
