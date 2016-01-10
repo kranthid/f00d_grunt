@@ -120,3 +120,10 @@ export function updateStatusOrder(req, res) {
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
+
+export function getOrdersByUser(req, res) {
+  var query = {email:req.body.email,contact:req.body.contact}
+  Order.findAsync(query)
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+}
