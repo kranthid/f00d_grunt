@@ -6,6 +6,7 @@ import {Schema} from 'mongoose';
 
 var UserSchema = new Schema({
   name: String,
+  mobile:String,
   email: {
     type: String,
     lowercase: true

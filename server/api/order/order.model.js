@@ -20,6 +20,10 @@ var OrderSchema = new mongoose.Schema({
   	type:String,
   	required:true
   },
+  address: {
+    type:String,
+    required:true
+  },
   orderId: {
   	type:String
   }
