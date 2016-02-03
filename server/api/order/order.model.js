@@ -17,7 +17,7 @@ var OrderSchema = new mongoose.Schema({
     enum: statuses
   },
   details: {
-  	type:String,
+  	type:Array,
   	required:true
   },
   address: {
