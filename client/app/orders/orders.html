@@ -1,0 +1,39 @@
+<navbar></navbar>
+		<orders></orders>
+		<!--<button type="submit" class="btn btn-default" ng-click="showCatlist()">Load Details of Categories</button><br/>-->
+		<table st-table="recipelist" st-safe-src="rowCollection" class="table table-striped">
+			<thead>
+			<tr>
+				<th st-sort="lastName">Description</th>
+				<th st-sort="lastName">Status</th>
+				<th st-sort="lastName">Price</th>
+				<th st-sort="lastName">Address</th>
+			</tr>
+			<tr>
+				<input st-search="title" placeholder="search for title" class="input-sm form-control" type="search"/>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="row in orderslist">
+				<td>
+					<ul>
+						<li>Name: {{row.details[0].items[0].name}}</li>
+						<li>Qun : {{row.details[0].items[0].quantity}}</li>
+						<li>Total: {{row.details[0].items[0].total}}</li>
+					</ul>
+				</td>
+				<td>
+				    <select name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
+				      <option value="">{{row.status}}</option> 
+				      <option value="Coocked">Coocked</option>
+				      <option value="On the way">On the way</option>
+				      <option value="Delivered">Delivered</option>
+				    </select>
+
+				</td>
+				<td>{{row.details[0].totalCost}}</td>
+				<td>{{row.address}}</td>
+			</tr>
+			</tbody>
+		</table>
+
