@@ -10,7 +10,9 @@ angular.module('myNewProjectApp', [
   'ui.router',
   'ui.bootstrap',
   'validation.match',
-  'ngFileUpload'
+  'ngFileUpload',
+  'datatables',
+  'ngTagsInput'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

@@ -14,6 +14,8 @@
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+      <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+      <link rel="stylesheet" href="bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -33,6 +35,7 @@
       <link rel="stylesheet" href="app/recipelist/recipelist.css">
       <link rel="stylesheet" href="app/recipelist/recipeupdate/recipeupdate.css">
       <link rel="stylesheet" href="app/recipes/recipes.css">
+      <link rel="stylesheet" href="app/restro/restro.css">
       <link rel="stylesheet" href="app/upload/upload.css">
       <link rel="stylesheet" href="components/footer/footer.css">
       <link rel="stylesheet" href="components/modal/modal.css">
@@ -75,6 +78,18 @@
       <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
       <script src="bower_components/angular-file-model/angular-file-model.js"></script>
       <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+      <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+      <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/colreorder/angular-datatables.colreorder.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/light-columnfilter/angular-datatables.light-columnfilter.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/fixedheader/angular-datatables.fixedheader.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/scroller/angular-datatables.scroller.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/select/angular-datatables.select.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
@@ -83,7 +98,7 @@
       <script src="app/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/main/main.js"></script>
+      <script src="app/menucat/menucat.directive.js"></script>
       <script src="app/admin/admin.controller.js"></script>
       <script src="app/account/account.js"></script>
       <script src="app/admin/admin.router.js"></script>
@@ -108,8 +123,8 @@
       <script src="app/catlist/update/catlist/update.controller.js"></script>
       <script src="app/catlist/update/catlist/update.js"></script>
       <script src="app/main/main.controller.js"></script>
+      <script src="app/main/main.js"></script>
       <script src="app/account/login/login.controller.js"></script>
-      <script src="app/menucat/menucat.directive.js"></script>
       <script src="app/orders/orders.controller.js"></script>
       <script src="app/orders/orders.directive.js"></script>
       <script src="app/orders/orders.js"></script>
@@ -123,6 +138,9 @@
       <script src="app/recipes/recipes.controller.js"></script>
       <script src="app/recipes/recipes.js"></script>
       <script src="app/recipes/recipes.service.js"></script>
+      <script src="app/restro/restro.controller.js"></script>
+      <script src="app/restro/restro.js"></script>
+      <script src="app/restro/restro.service.js"></script>
       <script src="app/upload/upload.directive.js"></script>
       <script src="app/account/settings/settings.controller.js"></script>
       <script src="components/auth/auth.service.js"></script>
