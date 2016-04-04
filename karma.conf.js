@@ -41,6 +41,7 @@ module.exports = function(config) {
       'client/bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js',
       'client/bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.js',
       'client/bower_components/angular-datatables/dist/plugins/select/angular-datatables.select.js',
+      'client/bower_components/ng-tags-input/ng-tags-input.min.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'client/app/app.js',
