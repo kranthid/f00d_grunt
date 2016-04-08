@@ -11,6 +11,7 @@
 
 import _ from 'lodash';
 var Shops = require('./shops.model');
+var mongoPromise = require('mongodb-bluebird');
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -40,9 +41,12 @@ function handleEntityNotFound(res) {
 
 function saveUpdates(updates) {
   return function(entity) {
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",entity)
     var updated = _.merge(entity, updates);
+    console.log("updated is >>>>>>>>>>>>>",updated)
     return updated.saveAsync()
       .spread(updated => {
+        console.log("final answer is >>>>>>>>>>>>",updated)
         return updated;
       });
   };
@@ -99,4 +103,34 @@ export function destroy(req, res) {
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
+}
+
+export function customUpdate(req,res){
+  console.log("req is >>>>>>>>>>>>>",Shops.findAndModify);
+/*Shops.findAndUpdateAsync(
+  { "_id": req.params.id },
+  { "$set": { 
+        "name" :req.body.name,
+        "location" :req.body.location,
+        "special" : [ ],
+        "mcard" : req.body.mcard
+  }},
+  { "new": true},
+  function(err,doc) {
+    if (err) throw err;
+    console.log( doc );
+    res.send(doc)
+  }
+);*/
+Shops.update({_id:req.params.id},req.body,{new:true},function(err,data){
+  if(err){
+    res.status(500);
+    res.send({message:"Some thing went wrong"})
+  }else{
+    res.status(200);
+    res.send(data);
+  }
+})
+
+
 }

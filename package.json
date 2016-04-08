@@ -28,7 +28,8 @@
     "fs":"*",
     "cors":"*",
     "multer":"*",
-    "rand-range":"*"
+    "rand-range":"*",
+    "mongodb-bluebird":"*"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.0",

@@ -2,16 +2,21 @@
 
 angular.module('myNewProjectApp')
 .controller('RestroCtrl', customCrudTable)
-  .controller('RestroCtrl',['$scope','restro',  function ($scope,restro) {
+  .controller('RestroCtrl',['$scope','restroMain',  function ($scope,restro) {
     $scope.message = 'Hello';
     $scope.mitems = []
     $scope.createMenuItem = function(input){
     	console.log("Coming data >>>"+input)
 		_.forEach(input.items,function(data,index){
 		console.log("data is s>>>>>",index)
-		var tmp = data.text.split('|')
-		var tmpObj = {"name":tmp[0],"price":tmp[1],"category":tmp[2]}
-		console.log("tmp is >>>",tmpObj)
+        if(data.text){
+            var tmp = data.text.split('|')   
+            var tmpObj = {"name":tmp[0],"price":tmp[1],"category":tmp[2]} 
+        }else{
+            var tmp = data.split('|')
+            var tmpObj = {"name":tmp[0],"price":tmp[1],"category":tmp[2]}            
+        }
+    	console.log("tmp is >>>",tmpObj)
 		input.items[index] = tmpObj
 		})
 		var hotelObj = {

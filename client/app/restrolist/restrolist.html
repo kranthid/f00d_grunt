@@ -1,7 +1,6 @@
 <navbar></navbar>
-		<restrodir></restrodir>
-		<!--<button type="submit" class="btn btn-default" ng-click="showCatlist()">Load Details of Categories</button><br/>-->
-		<table st-table="recipelist" st-safe-src="rowCollection" class="table table-striped">
+<restrolist></restrolist>
+		<table st-table="restrolist" st-safe-src="rowCollection" class="table table-striped">
 			<thead>
 			<tr>
 				<th st-sort="lastName">Title</th>
@@ -11,8 +10,8 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr ng-repeat="row in recipelist">
-				<td>{{row.title}}</td>
+			<tr ng-repeat="row in restrolist track by $index">
+				<td>{{row.name}}</td>
 				<td>
 				<button type="button" ng-click="updateMenuItem(row)" class="btn btn-sm btn-success">
 					<i class="glyphicon glyphicon-pencil">
@@ -25,4 +24,4 @@
 				</td>
 			</tr>
 			</tbody>
-		</table>	
+		</table>
